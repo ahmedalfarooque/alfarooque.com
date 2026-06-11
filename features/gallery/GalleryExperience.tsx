@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { t } from "@/lib/labels";
 import type { GalleryItem, Locale } from "@/types/content";
 
@@ -13,6 +13,26 @@ export function GalleryExperience({ items, locale }: { items: GalleryItem[]; loc
   const [active, setActive] = useState<(typeof categories)[number]>("all");
   const [selected, setSelected] = useState<GalleryItem | null>(null);
   const visible = active === "all" ? items : items.filter((item) => item.category === active);
+
+  useEffect(() => {
+    if (!selected) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelected(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selected]);
 
   return (
     <>
@@ -32,9 +52,10 @@ export function GalleryExperience({ items, locale }: { items: GalleryItem[]; loc
       </div>
       <AnimatePresence>
         {selected ? (
-          <motion.div className="drawerOverlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)}>
-            <motion.div className="glass card" initial={{ scale: 0.94 }} animate={{ scale: 1 }} exit={{ scale: 0.94 }} style={{ width: "min(980px, 92vw)", margin: "7vh auto" }}>
-            <Image src={selected.image} width={1200} height={760} alt={selected.title} style={{ width: "100%", height: "auto", borderRadius: 30 }} />
+          <motion.div className="galleryLightboxOverlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)} role="dialog" aria-modal="true" aria-label={selected.title}>
+            <motion.div className="glass card galleryLightboxPanel" initial={{ scale: 0.94 }} animate={{ scale: 1 }} exit={{ scale: 0.94 }} onClick={(event) => event.stopPropagation()}>
+              <button className="viewerControl viewerClose" type="button" onClick={() => setSelected(null)} aria-label={locale === "ar" ? "إغلاق" : "Close"}>×</button>
+              <Image src={selected.image} width={1200} height={760} alt={selected.title} />
               <h3>{selected.title}</h3>
             </motion.div>
           </motion.div>
