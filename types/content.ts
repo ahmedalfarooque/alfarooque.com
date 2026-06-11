@@ -47,6 +47,11 @@ export type Machine = {
   name: string;
   image: string;
   description: string;
+  model?: string;
+  power?: string;
+  capacity?: string;
+  functionality?: string;
+  manufacturer?: string;
 };
 
 export type GalleryItem = {

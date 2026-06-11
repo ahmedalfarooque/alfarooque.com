@@ -6,10 +6,13 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BusinessGallery } from "@/features/businesses/BusinessGallery";
+import { CapabilityCards } from "@/features/businesses/CapabilityCards";
+import { MachineGallery } from "@/features/businesses/MachineGallery";
+import { ProductionSystem } from "@/features/businesses/ProductionSystem";
 import { ProjectShowcase } from "@/features/businesses/ProjectShowcase";
 import { getBusiness, getGallery, getMachinery, getProjects } from "@/lib/content";
 import { t } from "@/lib/labels";
-import type { GalleryItem, Locale, Project } from "@/types/content";
+import type { GalleryItem, Locale, Machine, Project } from "@/types/content";
 
 const specialty: Record<string, { eyebrow: string; title: string; items: string[] }> = {
   "wooden-industries": {
@@ -289,14 +292,18 @@ export function BusinessDetailPage({ locale, slug }: { locale: Locale; slug: str
 
       <section id={`${slug}-services`} className="container section businessSkinServices">
         <SectionHeading eyebrow={business.theme} title={locale === "ar" ? "قدرات مصممة لتجربة فاخرة وموثوقة." : "Capabilities designed for a premium, reliable experience."} />
-        <div className="grid three">
-          {business.sections.map((section) => (
-            <GlassCard key={section.title}>
-              <h3>{section.title}</h3>
-              <p>{section.body}</p>
-            </GlassCard>
-          ))}
-        </div>
+        {isWood ? (
+          <CapabilityCards capabilities={business.sections} locale={locale} />
+        ) : (
+          <div className="grid three">
+            {business.sections.map((section) => (
+              <GlassCard key={section.title}>
+                <h3>{section.title}</h3>
+                <p>{section.body}</p>
+              </GlassCard>
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="container section grid two businessSkinIdentity">
@@ -307,25 +314,29 @@ export function BusinessDetailPage({ locale, slug }: { locale: Locale; slug: str
           </GlassCard>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="grid two">
-            {spec.items.map((item) => (
-              <GlassCard
-                className={isPaint ? "paintSolutionCard" : isSalon ? "saloonJourneyCard" : isAuto ? "autoJourneyCard" : ""}
-                key={item}
-                style={
-                  isPaint
-                    ? { backgroundImage: `linear-gradient(135deg, rgba(7, 20, 38, 0.62), rgba(7, 20, 38, 0.24)), url(${paintSolutionImages[item]})` }
-                    : isSalon
-                      ? { backgroundImage: `linear-gradient(135deg, rgba(7, 20, 38, 0.70), rgba(7, 20, 38, 0.28)), url(${salonJourneyImages[item]})` }
-                      : isAuto
-                        ? { backgroundImage: `linear-gradient(135deg, rgba(7, 20, 38, 0.72), rgba(7, 20, 38, 0.26)), url(${autoJourneyImages[item]})` }
-                        : undefined
-                }
-              >
-                <h3>{locale === "ar" ? localizeItem(item) : item}</h3>
-              </GlassCard>
-            ))}
-          </div>
+          {isWood ? (
+            <ProductionSystem items={spec.items} locale={locale} />
+          ) : (
+            <div className="grid two">
+              {spec.items.map((item) => (
+                <GlassCard
+                  className={isPaint ? "paintSolutionCard" : isSalon ? "saloonJourneyCard" : isAuto ? "autoJourneyCard" : ""}
+                  key={item}
+                  style={
+                    isPaint
+                      ? { backgroundImage: `linear-gradient(135deg, rgba(7, 20, 38, 0.62), rgba(7, 20, 38, 0.24)), url(${paintSolutionImages[item]})` }
+                      : isSalon
+                        ? { backgroundImage: `linear-gradient(135deg, rgba(7, 20, 38, 0.70), rgba(7, 20, 38, 0.28)), url(${salonJourneyImages[item]})` }
+                        : isAuto
+                          ? { backgroundImage: `linear-gradient(135deg, rgba(7, 20, 38, 0.72), rgba(7, 20, 38, 0.26)), url(${autoJourneyImages[item]})` }
+                          : undefined
+                  }
+                >
+                  <h3>{locale === "ar" ? localizeItem(item) : item}</h3>
+                </GlassCard>
+              ))}
+            </div>
+          )}
         </Reveal>
       </section>
 
@@ -348,20 +359,12 @@ export function BusinessDetailPage({ locale, slug }: { locale: Locale; slug: str
   );
 }
 
-function WoodenSections({ locale, machinery, projects, labels }: { locale: Locale; machinery: Array<{ name: string; image: string; description: string }>; projects: Project[]; labels: ReturnType<typeof t> }) {
+function WoodenSections({ locale, machinery, projects, labels }: { locale: Locale; machinery: Machine[]; projects: Project[]; labels: ReturnType<typeof t> }) {
   return (
     <>
       <section className="container section">
         <SectionHeading eyebrow={locale === "ar" ? "تقنية التصنيع" : "Our manufacturing technology"} title={locale === "ar" ? "معدات متقدمة تدعم الدقة والتشطيب." : "Advanced machinery supporting precision, repeatability, and refined finishes."} />
-        <div className="grid three">
-          {machinery.map((machine) => (
-            <GlassCard className="machineCard" key={machine.name}>
-              <Image src={machine.image} width={680} height={480} alt={machine.name} />
-              <h3>{machine.name}</h3>
-              <p>{machine.description}</p>
-            </GlassCard>
-          ))}
-        </div>
+        <MachineGallery machines={machinery} locale={locale} />
       </section>
       <section className="container section">
         <SectionHeading eyebrow={labels.featuredProjects} title={locale === "ar" ? "محفظة تنفيذ خشبية ومعمارية." : "Wooden and architectural delivery portfolio."} />

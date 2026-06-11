@@ -2,31 +2,121 @@
   {
     "name": "CNC Router Machine",
     "image": "/images/machines/machine-01.webp",
-    "description": "Precision routing and shaping for decorative panels, carved details, and custom wood components."
+    "description": "Precision routing and shaping for decorative panels, carved details, and custom wood components.",
+    "model": "Industrial CNC routing line",
+    "power": "High-duty production configuration",
+    "capacity": "Panel routing, carving, grooving, and profile cutting",
+    "functionality": "Converts digital design files into accurate architectural wood components.",
+    "manufacturer": "Configured for professional woodworking production"
   },
   {
     "name": "Edge Banding Machine",
     "image": "/images/machines/machine-02.webp",
-    "description": "Applies clean, durable edges to panels for cabinets, wardrobes, and visible architectural joinery."
+    "description": "Applies clean, durable edges to panels for cabinets, wardrobes, and visible architectural joinery.",
+    "model": "Automatic edge banding system",
+    "power": "Continuous workshop operation",
+    "capacity": "Straight panel edging for furniture and cabinetry",
+    "functionality": "Bonds, trims, and finishes panel edges for a refined factory-grade result.",
+    "manufacturer": "Professional panel-processing equipment"
   },
   {
     "name": "Panel Saw Machine",
     "image": "/images/machines/machine-03.webp",
-    "description": "Supports accurate panel sizing for repeatable production, cleaner cuts, and material efficiency."
+    "description": "Supports accurate panel sizing for repeatable production, cleaner cuts, and material efficiency.",
+    "model": "Precision panel sizing saw",
+    "power": "Heavy-duty cutting motor setup",
+    "capacity": "Sheet goods, MDF, plywood, and laminated panels",
+    "functionality": "Delivers accurate linear cuts for structured production workflows.",
+    "manufacturer": "Industrial woodworking machine line"
   },
   {
     "name": "Automatic Drilling Machine",
     "image": "/images/machines/machine-04.webp",
-    "description": "Creates consistent cabinet system holes for hinges, shelves, rails, and hardware fittings."
+    "description": "Creates consistent cabinet system holes for hinges, shelves, rails, and hardware fittings.",
+    "model": "Multi-boring drilling station",
+    "power": "Workshop-grade drilling operation",
+    "capacity": "System holes, hinge points, and hardware patterns",
+    "functionality": "Improves repeatability for modular cabinetry and joinery assembly.",
+    "manufacturer": "Professional cabinet production equipment"
   },
   {
     "name": "Sanding Machine",
     "image": "/images/machines/machine-05.webp",
-    "description": "Prepares refined surfaces for veneer, laminate, paint, and premium finishing workflows."
+    "description": "Prepares refined surfaces for veneer, laminate, paint, and premium finishing workflows.",
+    "model": "Wide-belt sanding equipment",
+    "power": "Continuous finishing workflow",
+    "capacity": "Flat panels and prepared wood surfaces",
+    "functionality": "Creates smooth, even surfaces before coating, veneer, or final finishing.",
+    "manufacturer": "Industrial surface-preparation equipment"
   },
   {
     "name": "Paint & Finishing Equipment",
     "image": "/images/machines/machine-06.webp",
-    "description": "Supports polished finishing standards for durable, elegant architectural woodwork."
+    "description": "Supports polished finishing standards for durable, elegant architectural woodwork.",
+    "model": "Controlled finishing station",
+    "power": "Professional finishing workflow",
+    "capacity": "Paint, coating, staining, and final surface treatments",
+    "functionality": "Supports consistent finish quality across custom furniture and architectural elements.",
+    "manufacturer": "Specialized wood-finishing system"
+  },
+  {
+    "name": "Beam Saw Production Line",
+    "image": "/images/machines/machine-07.webp",
+    "description": "Cuts batches of panel materials with clean alignment for efficient manufacturing throughput.",
+    "model": "Batch panel cutting line",
+    "power": "Industrial cutting cycle",
+    "capacity": "Stacked panel cutting and dimensioning",
+    "functionality": "Improves production speed while maintaining repeatable panel dimensions.",
+    "manufacturer": "Professional panel manufacturing equipment"
+  },
+  {
+    "name": "Hot Press Lamination Machine",
+    "image": "/images/machines/machine-08.webp",
+    "description": "Supports laminate, veneer, and surface bonding for durable decorative panel applications.",
+    "model": "Hydraulic hot press system",
+    "power": "Thermal pressing workflow",
+    "capacity": "Veneer, laminate, and decorative surface bonding",
+    "functionality": "Applies controlled pressure and heat for stable surface adhesion.",
+    "manufacturer": "Industrial lamination equipment"
+  },
+  {
+    "name": "Dust Collection System",
+    "image": "/images/machines/machine-09.webp",
+    "description": "Maintains a cleaner workshop environment by extracting dust from cutting and sanding operations.",
+    "model": "Centralized extraction system",
+    "power": "Multi-point workshop extraction",
+    "capacity": "Saw dust, sanding dust, and airborne production residue",
+    "functionality": "Supports cleaner operations, equipment care, and better finishing preparation.",
+    "manufacturer": "Workshop environmental control system"
+  },
+  {
+    "name": "Spray Booth System",
+    "image": "/images/machines/machine-10.webp",
+    "description": "Creates controlled finishing conditions for smooth coating application and premium surface quality.",
+    "model": "Professional coating booth",
+    "power": "Ventilated finishing environment",
+    "capacity": "Paint, lacquer, stain, and protective coatings",
+    "functionality": "Helps manage overspray, airflow, and finish consistency.",
+    "manufacturer": "Specialized finishing-room equipment"
+  },
+  {
+    "name": "Assembly & Clamping Station",
+    "image": "/images/machines/machine-11.webp",
+    "description": "Supports stable assembly of cabinets, doors, frames, and bespoke furniture components.",
+    "model": "Joinery assembly station",
+    "power": "Manual and assisted clamping workflow",
+    "capacity": "Cabinet carcasses, frames, and custom furniture units",
+    "functionality": "Improves alignment and assembly quality before final inspection.",
+    "manufacturer": "Professional workshop assembly system"
+  },
+  {
+    "name": "Detail Trimming Machine",
+    "image": "/images/machines/machine-12.webp",
+    "description": "Handles fine trimming and edge refinement for detailed carpentry and custom joinery work.",
+    "model": "Detail finishing and trimming station",
+    "power": "Precision finishing workflow",
+    "capacity": "Edges, profiles, and small custom components",
+    "functionality": "Refines detailed parts for a cleaner final presentation.",
+    "manufacturer": "Specialized woodworking support equipment"
   }
 ]
