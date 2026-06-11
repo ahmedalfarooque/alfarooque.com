@@ -1,0 +1,128 @@
+[
+  {
+    "slug": "jotashield",
+    "file": "C:\\Users\\Arshad_IAAE\\Downloads\\Jotashield_colour_card_MY.pdf",
+    "pages": [
+      {
+        "page": 1,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-01.webp",
+        "width": 1162,
+        "height": 1800
+      },
+      {
+        "page": 2,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-02.webp",
+        "width": 1151,
+        "height": 1800
+      },
+      {
+        "page": 3,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-03.webp",
+        "width": 1164,
+        "height": 1800
+      },
+      {
+        "page": 4,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-04.webp",
+        "width": 1162,
+        "height": 1800
+      },
+      {
+        "page": 5,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-05.webp",
+        "width": 1153,
+        "height": 1800
+      },
+      {
+        "page": 6,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-06.webp",
+        "width": 1151,
+        "height": 1800
+      },
+      {
+        "page": 7,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-07.webp",
+        "width": 1153,
+        "height": 1800
+      },
+      {
+        "page": 8,
+        "src": "/images/pdf-jotun/jotashield/jotashield-page-08.webp",
+        "width": 1164,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "majestic",
+    "file": "C:\\Users\\Arshad_IAAE\\Downloads\\Jotun_Majestic_Colour_Card-Malaysia_2022.pdf",
+    "pages": [
+      {
+        "page": 1,
+        "src": "/images/pdf-jotun/majestic/majestic-page-01.webp",
+        "width": 1157,
+        "height": 1800
+      },
+      {
+        "page": 2,
+        "src": "/images/pdf-jotun/majestic/majestic-page-02.webp",
+        "width": 1157,
+        "height": 1800
+      },
+      {
+        "page": 3,
+        "src": "/images/pdf-jotun/majestic/majestic-page-03.webp",
+        "width": 1158,
+        "height": 1800
+      },
+      {
+        "page": 4,
+        "src": "/images/pdf-jotun/majestic/majestic-page-04.webp",
+        "width": 1158,
+        "height": 1800
+      },
+      {
+        "page": 5,
+        "src": "/images/pdf-jotun/majestic/majestic-page-05.webp",
+        "width": 1157,
+        "height": 1800
+      },
+      {
+        "page": 6,
+        "src": "/images/pdf-jotun/majestic/majestic-page-06.webp",
+        "width": 1158,
+        "height": 1800
+      },
+      {
+        "page": 7,
+        "src": "/images/pdf-jotun/majestic/majestic-page-07.webp",
+        "width": 1157,
+        "height": 1800
+      },
+      {
+        "page": 8,
+        "src": "/images/pdf-jotun/majestic/majestic-page-08.webp",
+        "width": 1157,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "gardex",
+    "file": "C:\\Users\\Arshad_IAAE\\Downloads\\Gardex_Colour_Card__Malaysia__Final_090414_2021.pdf",
+    "pages": [
+      {
+        "page": 1,
+        "src": "/images/pdf-jotun/gardex/gardex-page-01.webp",
+        "width": 1800,
+        "height": 669
+      },
+      {
+        "page": 2,
+        "src": "/images/pdf-jotun/gardex/gardex-page-02.webp",
+        "width": 1800,
+        "height": 669
+      }
+    ]
+  }
+]

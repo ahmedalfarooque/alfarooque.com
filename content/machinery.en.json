@@ -1,0 +1,32 @@
+[
+  {
+    "name": "CNC Router Machine",
+    "image": "/images/machines/machine-01.webp",
+    "description": "Precision routing and shaping for decorative panels, carved details, and custom wood components."
+  },
+  {
+    "name": "Edge Banding Machine",
+    "image": "/images/machines/machine-02.webp",
+    "description": "Applies clean, durable edges to panels for cabinets, wardrobes, and visible architectural joinery."
+  },
+  {
+    "name": "Panel Saw Machine",
+    "image": "/images/machines/machine-03.webp",
+    "description": "Supports accurate panel sizing for repeatable production, cleaner cuts, and material efficiency."
+  },
+  {
+    "name": "Automatic Drilling Machine",
+    "image": "/images/machines/machine-04.webp",
+    "description": "Creates consistent cabinet system holes for hinges, shelves, rails, and hardware fittings."
+  },
+  {
+    "name": "Sanding Machine",
+    "image": "/images/machines/machine-05.webp",
+    "description": "Prepares refined surfaces for veneer, laminate, paint, and premium finishing workflows."
+  },
+  {
+    "name": "Paint & Finishing Equipment",
+    "image": "/images/machines/machine-06.webp",
+    "description": "Supports polished finishing standards for durable, elegant architectural woodwork."
+  }
+]

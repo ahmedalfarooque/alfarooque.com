@@ -1,0 +1,62 @@
+[
+  {
+    "id": "formula-1-grand-prix",
+    "title": "Formula 1 Saudi Arabian Grand Prix",
+    "category": "wood",
+    "image": "/images/gallery/gallery-01.webp",
+    "location": "Jeddah Corniche Circuit, Saudi Arabia",
+    "summary": "Temporary VIP access and pedestrian bridge works supporting high-volume event movement.",
+    "value": "2,500,000 SAR",
+    "story": "A high-pressure event environment requiring controlled access, safety awareness, coordination discipline, and reliable delivery for temporary pedestrian movement."
+  },
+  {
+    "id": "neom-community-healthcare",
+    "title": "NEOM Community 1 Healthcare Center",
+    "category": "wood",
+    "image": "/images/gallery/gallery-02.webp",
+    "location": "NEOM, Saudi Arabia",
+    "summary": "Healthcare project reference demonstrating execution in regulated, high-trust environments.",
+    "value": "1,950,000 SAR",
+    "story": "A healthcare-linked project reference that reflects Alfarooque's ability to support precise environments where coordination, finish quality, and dependability matter."
+  },
+  {
+    "id": "radisson-blu-jeddah",
+    "title": "Radisson Blu Hotel Jeddah",
+    "category": "wood",
+    "image": "/images/gallery/gallery-03.webp",
+    "location": "Jeddah, Saudi Arabia",
+    "summary": "Hospitality wood manufacturing and interior delivery reference.",
+    "value": "Hospitality",
+    "story": "Custom wooden elements for hospitality environments where durability, guest-facing polish, and site coordination shape the final experience."
+  },
+  {
+    "id": "fakeeh-hospital",
+    "title": "Dr. Soliman Fakeeh Hospital",
+    "category": "wood",
+    "image": "/images/gallery/gallery-04.webp",
+    "location": "Jeddah, Saudi Arabia",
+    "summary": "Healthcare sector wooden industries project reference.",
+    "value": "Healthcare",
+    "story": "A healthcare project reference supported by manufacturing discipline, controlled material handling, and reliable project coordination."
+  },
+  {
+    "id": "jotun-dahaban-retail",
+    "title": "Jotun Dahaban Retail Experience",
+    "category": "paint",
+    "image": "/images/gallery/gallery-17.webp",
+    "location": "Dahaban, Jeddah",
+    "summary": "Paint retail storefront and product consultation environment.",
+    "value": "Retail",
+    "story": "A customer-facing retail environment designed for color selection, product advice, coating system decisions, and premium service confidence."
+  },
+  {
+    "id": "rowad-car-audio",
+    "title": "Automotive Audio Upgrade",
+    "category": "auto",
+    "image": "/images/rowad-alfa-car-accessories/car-accessories-48.webp",
+    "location": "Jeddah, Saudi Arabia",
+    "summary": "Audio system component installation and vehicle enhancement showcase.",
+    "value": "Automotive",
+    "story": "A practical vehicle enhancement focused on better sound, clean installation, everyday usability, and customer-ready customization."
+  }
+]

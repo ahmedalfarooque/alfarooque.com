@@ -1,0 +1,41 @@
+{
+  "departments": [
+    {
+      "name": "الإدارة العامة",
+      "email": "chairman@alfarooque.com",
+      "phone": "+966 56 300 0051",
+      "address": "طريق مكة القديم، بحرة، المملكة العربية السعودية",
+      "website": "www.alfarooque.com",
+      "workingHours": "السبت - الخميس، 9:00 صباحاً - 6:00 مساءً"
+    },
+    {
+      "name": "مبيعات الصناعات الخشبية",
+      "email": "sales@alfarooque.com",
+      "phone": "+966 56 300 0051",
+      "address": "طريق مكة القديم، بحرة، جدة",
+      "website": "www.alfarooque.com",
+      "workingHours": "السبت - الخميس، 8:00 صباحاً - 6:00 مساءً"
+    },
+    {
+      "name": "المشاريع والمالية",
+      "email": "mohammed@alfarooque.com",
+      "phone": "+966 56 446 6661",
+      "address": "طريق مكة القديم، بحرة، جدة",
+      "website": "www.alfarooque.com",
+      "workingHours": "الأحد - الخميس، 9:00 صباحاً - 5:00 مساءً"
+    },
+    {
+      "name": "الإدارة القانونية",
+      "email": "ahmed@alfarooque.com",
+      "phone": "+966 53 333 9052",
+      "address": "البساتين، جدة",
+      "website": "www.alfarooque.com",
+      "workingHours": "الأحد - الخميس، 9:00 صباحاً - 5:00 مساءً"
+    }
+  ],
+  "form": {
+    "title": "وجّه استفسارك إلى القسم المناسب.",
+    "fields": ["الاسم", "البريد الإلكتروني", "الهاتف", "القسم", "الرسالة"],
+    "cta": "تحضير الاستفسار"
+  }
+}

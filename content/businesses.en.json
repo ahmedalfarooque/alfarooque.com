@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "wooden-industries",
+    "name": "Ismail Alfarooque Wooden Industries",
+    "category": "Industrial manufacturing",
+    "theme": "Luxury industrial + architectural craftsmanship",
+    "image": "/images/wood-wall.webp",
+    "summary": "Advanced architectural wood manufacturing for fire-rated doors, cabinets, joinery, veneer work, cladding, counters, and custom interiors.",
+    "hero": "Architectural wood manufacturing with industrial precision.",
+    "sections": [
+      { "title": "Manufacturing capabilities", "body": "Automated cutting, edge finishing, sanding, veneer preparation, hot pressing, boring, mortising, profiling, and installation support." },
+      { "title": "Machinery and technology", "body": "Production assets include SCM edge banding, throughfeed moulding, wide belt sanding, beam saw cutting, boring systems, ORMA hot presses, Centauro mortising, and Casati veneer preparation." },
+      { "title": "Products", "body": "Fire-rated doors, non-fire-rated doors, frames, wardrobes, cabinets, counters, wall cladding, office joinery, custom furniture, and hospitality fit-out elements." },
+      { "title": "Quality standards", "body": "BM TRADA Q-Mark fire-door capability, ISO-led quality practices, raw-material controls, stage inspections, and on-site installation coordination." }
+    ]
+  },
+  {
+    "slug": "paint-shop",
+    "name": "Jotun Rowad Alfa Paint Shop",
+    "category": "Paint technology",
+    "theme": "Color science + premium coating technology",
+    "image": "/images/pdf-jotun/majestic/majestic-page-01.webp",
+    "summary": "A Jotun paint retail experience built around PDF-sourced Majestic interior colours, Jotashield exterior colours, and Gardex premium gloss wood and metal colour systems.",
+    "hero": "Jotun interior, exterior, wood, and metal colour systems.",
+    "sections": [
+      { "title": "Majestic interior paints", "body": "Perfect interior colours and premium interior paint systems including Majestic Sense, True Beauty Sheen, True Beauty Matt, Supreme Finish, and Majestic primers." },
+      { "title": "Jotashield exterior protection", "body": "Long-lasting exterior colours, Jotashield Flex for visible wall cracks, UV-protected colours, waterproof protection, and exterior primer/sealer systems." },
+      { "title": "Gardex wood and metal colours", "body": "Gardex Premium Gloss wood and metal colour solutions with low odour, optimized drying time, excellent colour last, weather resistance, anti fungal and anti rust benefits." }
+    ]
+  },
+  {
+    "slug": "saloon",
+    "name": "Rowad Alfa Saloon",
+    "category": "Luxury grooming",
+    "theme": "Lifestyle + spa-grade premium UI",
+    "image": "/images/rowad-alfa-saloon/saloon-18.webp",
+    "summary": "A premium grooming concept focused on precision hair services, beard care, hygiene, booking convenience, and polished customer experience.",
+    "hero": "Modern grooming with a calm premium rhythm.",
+    "sections": [
+      { "title": "Services", "body": "Haircuts, styling, beard sculpting, hot towel preparation, grooming rituals, skincare finishing, and executive packages." },
+      { "title": "Booking UI", "body": "A digital booking interface presents services, time preferences, package options, and direct call or WhatsApp actions." },
+      { "title": "Experience", "body": "A refined service environment shaped by cleanliness, comfort, privacy, and consistent hospitality." }
+    ]
+  },
+  {
+    "slug": "car-accessories",
+    "name": "Rowad Alfa Car Accessories",
+    "category": "Automotive lifestyle",
+    "theme": "Performance luxury automotive aesthetic",
+    "image": "/images/rowad-alfa-car-accessories/car-accessories-45.webp",
+    "summary": "Automotive accessories, protection products, audio systems, technology installations, detailing support, and customization services.",
+    "hero": "Accessories, protection, and upgrades for a sharper drive.",
+    "sections": [
+      { "title": "Accessories catalog", "body": "Interior accessories, organizers, lighting, exterior accents, protection products, and daily-use vehicle enhancements." },
+      { "title": "Technology installations", "body": "Audio components, subwoofer enclosures, wiring support, and practical in-car technology upgrades." },
+      { "title": "Workshop capability", "body": "Installation-led service for customers seeking better function, refined appearance, improved sound, and a more personal vehicle." }
+    ]
+  }
+]

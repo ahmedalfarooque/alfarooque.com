@@ -1,0 +1,70 @@
+{
+  "locale": "en",
+  "direction": "ltr",
+  "brand": "Alfarooque Holding",
+  "tagline": "Excellent Service • Superior Quality • Reasonable Cost",
+  "summary": "Alfarooque Holding is a Saudi private holding company established in 1980 with headquarters in Jeddah and roots in Makkah. The group operates across real estate, manufacturing, construction, catering, tourism, lifestyle services, paint retail, automotive accessories, carpentry products, bespoke furniture, and advanced wooden industries.",
+  "hero": {
+    "eyebrow": "Saudi investment holding company",
+    "title": "Building Excellence Since 1980",
+    "body": "Four decades of trust, innovation, and diversified investments across Saudi Arabia."
+  },
+  "heroSlides": [
+    {
+      "title": "Building Excellence Since 1980",
+      "description": "Four decades of trust, innovation, and diversified investments across Saudi Arabia.",
+      "image": "/images/home/slide-1.webp"
+    },
+    {
+      "title": "Crafting Quality. Creating Value.",
+      "description": "Delivering world-class woodworking, interiors, furnishing, and manufacturing solutions.",
+      "image": "/images/home/slide-2.webp"
+    },
+    {
+      "title": "Innovation Meets Tradition",
+      "description": "Combining modern technology with skilled craftsmanship to exceed expectations.",
+      "image": "/images/home/slide-3.webp"
+    },
+    {
+      "title": "Your Trusted Business Partner",
+      "description": "Committed to quality, reliability, and long-term partnerships across industries.",
+      "image": "/images/home/slide-4.webp"
+    }
+  ],
+  "stats": [
+    { "value": "40+", "label": "Years of Experience" },
+    { "value": "100+", "label": "Completed Projects" },
+    { "value": "1000+", "label": "Satisfied Clients" },
+    { "value": "Multiple", "label": "Industries" }
+  ],
+  "confidenceStats": [
+    { "value": "1980", "label": "Established Holding Company" },
+    { "value": "GCC", "label": "Trusted Supplier Relationships" },
+    { "value": "KSA", "label": "Regional Presence" },
+    { "value": "4", "label": "Featured Operating Businesses" }
+  ],
+  "values": [
+    { "title": "Integrity", "body": "Transparent commitments, responsible business conduct, and durable partnerships with customers, suppliers, and communities." },
+    { "title": "Quality", "body": "Superior materials, experienced teams, advanced workshops, and careful delivery standards across every operating company." },
+    { "title": "Innovation", "body": "Modern technology, manufacturing automation, digital presentation, and service improvements that strengthen the group’s future." },
+    { "title": "Sustainability", "body": "Long-term growth built through diversified investments, responsible resource use, employee development, and resilient operations." }
+  ],
+  "mission": "To build, operate, and grow high-value Saudi businesses that provide reliable products, excellent service, superior quality, and reasonable cost across manufacturing, construction, real estate, tourism, lifestyle, and retail sectors.",
+  "vision": "Alfarooque Holding’s vision is to develop a diversified Saudi investment platform that grows with discipline, innovation, and regional relevance. The group focuses on long-term growth through carefully selected operating companies, strategic investments, modern workshops, skilled people, and trusted partnerships. By combining traditional craftsmanship with advanced technology, Alfarooque aims to create value across real estate, manufacturing, construction, tourism, catering, lifestyle services, and retail experiences. Sustainability is treated as a practical responsibility: stronger operations, efficient resource use, safer work environments, better materials, and a commitment to customer success. The group’s ambition is to become a regional benchmark for family-led enterprise, manufacturing excellence, and premium customer experiences across Saudi Arabia and the GCC.",
+  "about": "Established in 1980, Alfarooque Holding is a private holding company founded by Ismail Ashrafhusain B Alfarooque and headquartered in Jeddah, Saudi Arabia. The company has developed interests across real estate, manufacturing, construction, catering, tourism, lifestyle services, carpentry products, bespoke furniture, and advanced wooden industries. Its woodworking operations support residential and commercial customers with carpentry products, furnishing, interiors, home decor, custom furniture, modern workshop capabilities, skilled craftsmen, machine operators, finishers, and reliable project delivery. Through relationships with reputable trading houses in Saudi Arabia and the GCC, Alfarooque sources quality materials and maintains a practical commitment to customer requirements, partnership value, and dependable outcomes. Excellent Service • Superior Quality • Reasonable Cost.",
+  "leadershipEssay": "The leadership philosophy of Alfarooque Holding is shaped by founder vision, business ethics, quality commitment, and the belief that long-term trust is built through disciplined execution. The group prioritizes reliable service, clear accountability, skilled workforce development, and continuous improvement across its operating businesses. Innovation is encouraged where it strengthens customer value, whether through automated woodworking equipment, refined retail experiences, better digital interfaces, or improved service workflows. Employee capability remains central to the group’s future, with attention to craftsmanship, technical competence, safety, and professional conduct. As the group expands, leadership continues to focus on diversified growth, strong partnerships, regional opportunity, and a corporate culture that balances tradition with modern enterprise standards.",
+  "confidence": "Alfarooque Holding’s corporate confidence is built on more than 40 years of market presence, a skilled workforce, modern workshop capabilities, strong supplier partnerships, manufacturing excellence, and customer trust. The group’s regional footprint across Jeddah, Bahrah, Dahaban, Makkah, and wider Saudi markets gives it practical insight into residential, commercial, hospitality, healthcare, retail, and industrial needs. Its wooden industries division demonstrates advanced production capability, while its paint, grooming, and automotive businesses extend the group into customer-facing lifestyle sectors. This diversified structure provides resilience, relevance, and a strong foundation for future expansion.",
+  "timeline": [
+    { "year": "1980", "title": "Private holding company established", "body": "Alfarooque Holding begins its journey in the Kingdom of Saudi Arabia with roots in Makkah and a long-term investment mindset." },
+    { "year": "Jeddah", "title": "Corporate and operating base", "body": "The group develops a Jeddah-centered presence with operations across Bahrah, Dahaban, Makkah, and wider Saudi markets." },
+    { "year": "Workshops", "title": "Modern carpentry and manufacturing", "body": "Woodworking capabilities expand through modern workshops, skilled finishers, machine operators, and bespoke furniture production." },
+    { "year": "Today", "title": "Diversified enterprise ecosystem", "body": "The group presents manufacturing, paint retail, grooming, automotive accessories, real estate interests, and service sectors under one premium holding identity." }
+  ],
+  "leadership": [
+    { "name": "Ismail Ashrafhusain B Alfarooque", "role": "Founder", "body": "Founder of Alfarooque Holding and the vision behind its long-term Saudi business platform." },
+    { "name": "Dr. Ismail Al Farooque", "role": "President", "body": "Referenced across company profile materials and corporate documentation." },
+    { "name": "Mohammed Ismail Ashraf Hussain Al-Farooque", "role": "Finance Manager", "body": "Commercial and project contact for Wooden Industries proposals." },
+    { "name": "Ahmed Ismail Ashraf Hussain Al-Farooque", "role": "Legal Department", "body": "Legal and corporate contact referenced in proposal materials." }
+  ],
+  "testimonial": "Alfarooque Holding combines 40+ years of experience, skilled people, manufacturing discipline, strong partnerships, and a customer-first service promise."
+}

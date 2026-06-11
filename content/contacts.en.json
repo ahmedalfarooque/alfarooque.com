@@ -1,0 +1,41 @@
+{
+  "departments": [
+    {
+      "name": "Corporate",
+      "email": "chairman@alfarooque.com",
+      "phone": "+966 56 300 0051",
+      "address": "Old Mecca Road, Bahrah, Saudi Arabia",
+      "website": "www.alfarooque.com",
+      "workingHours": "Saturday - Thursday, 9:00 AM - 6:00 PM"
+    },
+    {
+      "name": "Wooden Industries Sales",
+      "email": "sales@alfarooque.com",
+      "phone": "+966 56 300 0051",
+      "address": "Old Mecca Road, Bahrah, Jeddah",
+      "website": "www.alfarooque.com",
+      "workingHours": "Saturday - Thursday, 8:00 AM - 6:00 PM"
+    },
+    {
+      "name": "Projects & Finance",
+      "email": "mohammed@alfarooque.com",
+      "phone": "+966 56 446 6661",
+      "address": "Old Mecca Road, Bahrah, Jeddah",
+      "website": "www.alfarooque.com",
+      "workingHours": "Sunday - Thursday, 9:00 AM - 5:00 PM"
+    },
+    {
+      "name": "Legal Department",
+      "email": "ahmed@alfarooque.com",
+      "phone": "+966 53 333 9052",
+      "address": "Al Basteen, Jeddah",
+      "website": "www.alfarooque.com",
+      "workingHours": "Sunday - Thursday, 9:00 AM - 5:00 PM"
+    }
+  ],
+  "form": {
+    "title": "Route your inquiry to the right department.",
+    "fields": ["Name", "Email", "Phone", "Department", "Message"],
+    "cta": "Prepare inquiry"
+  }
+}
