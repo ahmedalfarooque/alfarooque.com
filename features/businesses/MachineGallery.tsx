@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { acquireOverlayLock, releaseOverlayLock } from "@/lib/overlayLock";
 import type { Locale, Machine } from "@/types/content";
 
 const labels = {
@@ -267,6 +268,15 @@ function getMachineSpec(machine: Machine, locale: Locale): MachineSpec {
 export function MachineGallery({ machines, locale }: { machines: Machine[]; locale: Locale }) {
   const [activeMachine, setActiveMachine] = useState<Machine | null>(null);
   const copy = labels[locale];
+  const lockId = "machine-viewer";
+  const openMachine = (machine: Machine) => {
+    if (!acquireOverlayLock(lockId)) return;
+    setActiveMachine(machine);
+  };
+  const closeMachine = () => {
+    setActiveMachine(null);
+    releaseOverlayLock(lockId);
+  };
 
   useEffect(() => {
     if (!activeMachine) {
@@ -275,18 +285,20 @@ export function MachineGallery({ machines, locale }: { machines: Machine[]; loca
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setActiveMachine(null);
+        closeMachine();
       }
     };
 
     document.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
     };
   }, [activeMachine]);
+
+  useEffect(() => {
+    return () => releaseOverlayLock(lockId);
+  }, []);
 
   return (
     <>
@@ -296,7 +308,7 @@ export function MachineGallery({ machines, locale }: { machines: Machine[]; loca
             type="button"
             className="glass card machineCard machineCardButton"
             key={machine.name}
-            onClick={() => setActiveMachine(machine)}
+            onClick={() => openMachine(machine)}
             aria-label={`${copy.open}: ${machine.name}`}
             whileHover={{ y: -5, scale: 1.015 }}
             whileTap={{ scale: 0.985 }}
@@ -318,7 +330,7 @@ export function MachineGallery({ machines, locale }: { machines: Machine[]; loca
             role="dialog"
             aria-modal="true"
             aria-label={activeMachine.name}
-            onClick={() => setActiveMachine(null)}
+            onClick={closeMachine}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -332,7 +344,7 @@ export function MachineGallery({ machines, locale }: { machines: Machine[]; loca
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
             >
-              <button className="machineModalClose" type="button" onClick={() => setActiveMachine(null)} aria-label={copy.close}>
+              <button className="machineModalClose" type="button" onClick={closeMachine} aria-label={copy.close}>
                 <X size={20} />
               </button>
 

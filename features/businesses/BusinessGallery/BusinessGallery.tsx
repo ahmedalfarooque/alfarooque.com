@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { GalleryCard } from "./GalleryCard";
 import { galleryHeading } from "./galleryData";
 import { useCarousel } from "./useCarousel";
+import { acquireOverlayLock, releaseOverlayLock } from "@/lib/overlayLock";
 import type { GalleryItem, Locale } from "@/types/content";
 
 const FullscreenViewer = dynamic(
@@ -34,6 +35,7 @@ export function BusinessGallery({
   const isSeamlessRail = isRail;
   const railCycleWidth = isSeamlessRail ? items.length * railStep : 0;
   const railSpeed = railCycleWidth > 0 ? railCycleWidth / 360 : 0;
+  const lockId = "business-gallery-viewer";
   const railItems = useMemo(() => {
     if (!isRail) return [];
     return isSeamlessRail ? [...items, ...items, ...items] : [...items, ...items];
@@ -65,6 +67,7 @@ export function BusinessGallery({
       draggedRef.current = false;
       return;
     }
+    if (!acquireOverlayLock(lockId)) return;
     pause();
     setActiveIndex(index);
   }, [draggedRef, pause]);
@@ -72,7 +75,12 @@ export function BusinessGallery({
   const close = useCallback(() => {
     setActiveIndex(null);
     resume();
+    releaseOverlayLock(lockId);
   }, [resume]);
+
+  useEffect(() => {
+    return () => releaseOverlayLock(lockId);
+  }, []);
 
   const showPrevious = useCallback(() => {
     setActiveIndex((current) => current === null ? current : (current - 1 + items.length) % items.length);

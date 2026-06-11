@@ -5,12 +5,13 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "@/config/navigation";
 import { getBusinesses } from "@/lib/content";
 import { oppositeLocale } from "@/lib/locales";
 import type { Locale } from "@/types/content";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { acquireOverlayLock, overlayIsLocked, releaseOverlayLock } from "@/lib/overlayLock";
 
 export function Navbar({ locale }: { locale: Locale }) {
   const [megaOpen, setMegaOpen] = useState(false);
@@ -20,6 +21,19 @@ export function Navbar({ locale }: { locale: Locale }) {
   const items = navItems(locale);
   const nextLocale = oppositeLocale(locale);
   const switchedPath = pathname.replace(`/${locale}`, `/${nextLocale}`);
+  const drawerLockId = "mobile-navigation-drawer";
+  const openDrawer = () => {
+    if (!acquireOverlayLock(drawerLockId)) return;
+    setDrawerOpen(true);
+  };
+  const closeDrawer = () => {
+    setDrawerOpen(false);
+    releaseOverlayLock(drawerLockId);
+  };
+
+  useEffect(() => {
+    return () => releaseOverlayLock(drawerLockId);
+  }, []);
 
   return (
     <>
@@ -31,7 +45,7 @@ export function Navbar({ locale }: { locale: Locale }) {
         <nav className="desktopNav" aria-label="Main navigation">
           {items.map((item) =>
             item.mega ? (
-              <button key={item.href} className="navItem" onMouseEnter={() => setMegaOpen(true)} onFocus={() => setMegaOpen(true)}>
+              <button key={item.href} className="navItem" onMouseEnter={() => { if (!overlayIsLocked()) setMegaOpen(true); }} onFocus={() => { if (!overlayIsLocked()) setMegaOpen(true); }}>
                 {item.label}
               </button>
             ) : (
@@ -46,7 +60,7 @@ export function Navbar({ locale }: { locale: Locale }) {
           <Link className="btn ghost" href={switchedPath}>
             {locale === "ar" ? "English" : "العربية"}
           </Link>
-          <button className="mobileButton" aria-label="Open navigation" onClick={() => setDrawerOpen(true)}>
+          <button className="mobileButton" aria-label="Open navigation" onClick={openDrawer}>
             <Menu size={20} />
           </button>
         </div>
@@ -77,7 +91,7 @@ export function Navbar({ locale }: { locale: Locale }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setDrawerOpen(false)}
+              onClick={closeDrawer}
             />
             <motion.aside
               className="mobileDrawer glass"
@@ -86,15 +100,15 @@ export function Navbar({ locale }: { locale: Locale }) {
               exit={{ x: locale === "ar" ? "-100%" : "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 220 }}
             >
-              <button className="mobileButton" aria-label="Close navigation" onClick={() => setDrawerOpen(false)}>
+              <button className="mobileButton" aria-label="Close navigation" onClick={closeDrawer}>
                 <X size={20} />
               </button>
               {items.map((item) => (
-                <Link key={item.href} className="navItem" href={item.href} onClick={() => setDrawerOpen(false)}>
+                <Link key={item.href} className="navItem" href={item.href} onClick={closeDrawer}>
                   {item.label}
                 </Link>
               ))}
-              <Link className="btn ghost" href={switchedPath} onClick={() => setDrawerOpen(false)}>
+              <Link className="btn ghost" href={switchedPath} onClick={closeDrawer}>
                 {locale === "ar" ? "English" : "العربية"}
               </Link>
               <ThemeToggle />

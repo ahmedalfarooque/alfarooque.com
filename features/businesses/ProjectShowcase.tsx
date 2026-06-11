@@ -2,31 +2,43 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { acquireOverlayLock, releaseOverlayLock } from "@/lib/overlayLock";
 import type { Locale, Project } from "@/types/content";
 
 export function ProjectShowcase({ projects, locale }: { projects: Project[]; locale: Locale }) {
   const [active, setActive] = useState<Project | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const lockId = "project-viewer";
+  const openProject = (project: Project) => {
+    if (!acquireOverlayLock(lockId)) return;
+    setActive(project);
+  };
+  const closeProject = () => {
+    setActive(null);
+    releaseOverlayLock(lockId);
+  };
 
   useEffect(() => {
     if (!active) return;
     closeRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActive(null);
+      if (event.key === "Escape") closeProject();
     };
-    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [active]);
+
+  useEffect(() => {
+    return () => releaseOverlayLock(lockId);
+  }, []);
 
   return (
     <>
       <div className="projectShowcaseGrid">
         {projects.map((project) => (
-          <button className="projectGlassCard" type="button" key={project.id} onClick={() => setActive(project)}>
+          <button className="projectGlassCard" type="button" key={project.id} onClick={() => openProject(project)}>
             <p className="eyebrow">{project.value}</p>
             <h3>{project.title}</h3>
             <p>{project.summary}</p>
@@ -36,8 +48,8 @@ export function ProjectShowcase({ projects, locale }: { projects: Project[]; loc
       </div>
       <AnimatePresence>
         {active ? (
-          <motion.div className="projectViewer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="dialog" aria-modal="true" aria-label={active.title} onClick={() => setActive(null)}>
-            <button ref={closeRef} className="viewerControl viewerClose" type="button" onClick={() => setActive(null)} aria-label={locale === "ar" ? "إغلاق" : "Close"}>×</button>
+          <motion.div className="projectViewer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="dialog" aria-modal="true" aria-label={active.title} onClick={closeProject}>
+            <button ref={closeRef} className="viewerControl viewerClose" type="button" onClick={closeProject} aria-label={locale === "ar" ? "إغلاق" : "Close"}>×</button>
             <motion.div className="projectViewerPanel" initial={{ opacity: 0, scale: 0.92, y: 22 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.94, y: 18 }} onClick={(event) => event.stopPropagation()}>
               <p className="eyebrow">{locale === "ar" ? "عارض المشروع" : "Project Viewer"}</p>
               <h2>{active.title}</h2>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { acquireOverlayLock, releaseOverlayLock } from "@/lib/overlayLock";
 import type { Locale } from "@/types/content";
 
 type ProductionStage = {
@@ -114,6 +115,15 @@ const modalLabels = {
 export function ProductionSystem({ items, locale }: { items: string[]; locale: Locale }) {
   const [activeStage, setActiveStage] = useState<ProductionStage | null>(null);
   const copy = modalLabels[locale];
+  const lockId = "production-viewer";
+  const openStage = (stage: ProductionStage) => {
+    if (!acquireOverlayLock(lockId)) return;
+    setActiveStage(stage);
+  };
+  const closeStage = () => {
+    setActiveStage(null);
+    releaseOverlayLock(lockId);
+  };
 
   const stages = useMemo(
     () =>
@@ -132,18 +142,20 @@ export function ProductionSystem({ items, locale }: { items: string[]; locale: L
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setActiveStage(null);
+        closeStage();
       }
     };
 
     document.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
     };
   }, [activeStage]);
+
+  useEffect(() => {
+    return () => releaseOverlayLock(lockId);
+  }, []);
 
   return (
     <>
@@ -153,7 +165,7 @@ export function ProductionSystem({ items, locale }: { items: string[]; locale: L
             type="button"
             className="glass card productionStepCard"
             key={stage.key}
-            onClick={() => setActiveStage(stage)}
+            onClick={() => openStage(stage)}
             whileHover={{ y: -5, scale: 1.01 }}
             whileTap={{ scale: 0.985 }}
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
@@ -174,7 +186,7 @@ export function ProductionSystem({ items, locale }: { items: string[]; locale: L
             role="dialog"
             aria-modal="true"
             aria-label={activeStage.title}
-            onClick={() => setActiveStage(null)}
+            onClick={closeStage}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -188,7 +200,7 @@ export function ProductionSystem({ items, locale }: { items: string[]; locale: L
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
             >
-              <button className="productionModalClose" type="button" onClick={() => setActiveStage(null)} aria-label={copy.close}>
+              <button className="productionModalClose" type="button" onClick={closeStage} aria-label={copy.close}>
                 <X size={20} />
               </button>
               <div className="productionModalImage">

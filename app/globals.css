@@ -271,11 +271,13 @@ span {
 }
 
 .navbar {
-  position: sticky;
-  top: 16px;
-  z-index: 50;
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
   width: min(var(--max), calc(100% - 32px));
-  margin: 16px auto 0;
+  margin: 0;
   min-height: 70px;
   border-radius: 999px;
   display: flex;
@@ -283,6 +285,14 @@ span {
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
+}
+
+.is-overlay-open .navbar .desktopNav,
+.is-overlay-open .navbar .navActions > a,
+.is-overlay-open .navbar .navActions .mobileButton,
+.is-overlay-open .navbar .brand,
+.is-overlay-open .navbar .themeToggle {
+  pointer-events: none;
 }
 
 .brand {
@@ -3663,6 +3673,13 @@ p {
   max-height: var(--modal-available-height) !important;
   padding: var(--modal-edge-gap) !important;
   overflow: hidden !important;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(104,167,255,0.10), transparent 34%),
+    radial-gradient(circle at 76% 62%, rgba(216,189,122,0.10), transparent 34%),
+    rgba(2,6,12,0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  pointer-events: auto;
 }
 
 .capabilityModal,

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { acquireOverlayLock, releaseOverlayLock } from "@/lib/overlayLock";
 import type { Locale } from "@/types/content";
 
 type Capability = {
@@ -105,6 +106,15 @@ const details: Record<Locale, Record<string, CapabilityDetail>> = {
 export function CapabilityCards({ capabilities, locale }: { capabilities: Capability[]; locale: Locale }) {
   const [activeCapability, setActiveCapability] = useState<Capability | null>(null);
   const copy = labels[locale];
+  const lockId = "capability-viewer";
+  const openCapability = (capability: Capability) => {
+    if (!acquireOverlayLock(lockId)) return;
+    setActiveCapability(capability);
+  };
+  const closeCapability = () => {
+    setActiveCapability(null);
+    releaseOverlayLock(lockId);
+  };
 
   const activeDetail = useMemo(() => {
     if (!activeCapability) {
@@ -120,18 +130,20 @@ export function CapabilityCards({ capabilities, locale }: { capabilities: Capabi
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setActiveCapability(null);
+        closeCapability();
       }
     };
 
     document.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
     };
   }, [activeCapability]);
+
+  useEffect(() => {
+    return () => releaseOverlayLock(lockId);
+  }, []);
 
   return (
     <>
@@ -141,7 +153,7 @@ export function CapabilityCards({ capabilities, locale }: { capabilities: Capabi
             type="button"
             className="glass card capabilityCard"
             key={capability.title}
-            onClick={() => setActiveCapability(capability)}
+            onClick={() => openCapability(capability)}
             aria-label={`${copy.open}: ${capability.title}`}
             whileHover={{ y: -5, scale: 1.01 }}
             whileTap={{ scale: 0.985 }}
@@ -161,7 +173,7 @@ export function CapabilityCards({ capabilities, locale }: { capabilities: Capabi
             role="dialog"
             aria-modal="true"
             aria-label={activeCapability.title}
-            onClick={() => setActiveCapability(null)}
+            onClick={closeCapability}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -175,7 +187,7 @@ export function CapabilityCards({ capabilities, locale }: { capabilities: Capabi
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
             >
-              <button className="capabilityModalClose" type="button" onClick={() => setActiveCapability(null)} aria-label={copy.close}>
+              <button className="capabilityModalClose" type="button" onClick={closeCapability} aria-label={copy.close}>
                 <X size={20} />
               </button>
               <div className="capabilityModalContent">
