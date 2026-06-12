@@ -26,7 +26,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               : "An advanced inquiry form, multi-department contact cards, WhatsApp access, and map-ready support for enterprise communication."}
           </p>
           <div className="buttonRow">
-            <a className="btn primary" href="https://api.whatsapp.com/send?phone=966568114820" target="_blank" rel="noreferrer">
+            <a className="btn primary" href="https://wa.me/966563000051" target="_blank" rel="noreferrer">
               <MessageCircle size={18} />
               WhatsApp
             </a>
@@ -88,7 +88,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <MessageCircle size={28} />
           <h3>{locale === "ar" ? "استجابة أسرع عبر واتساب" : "Faster response through WhatsApp"}</h3>
           <p>{locale === "ar" ? "زر عائم وخيارات اتصال مباشرة تسهل بدء المحادثة من أي جهاز." : "A floating-ready contact action and direct links make it simple to start a conversation from any device."}</p>
-          <a className="btn primary" href="https://api.whatsapp.com/send?phone=966568114820" target="_blank" rel="noreferrer">
+          <a className="btn primary" href="https://wa.me/966563000051" target="_blank" rel="noreferrer">
             WhatsApp
           </a>
         </GlassCard>
