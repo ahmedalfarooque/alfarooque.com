@@ -15,8 +15,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     <main className="container">
       <section className="hero aboutHero">
         <Reveal>
-          <p className="eyebrow">{locale === "ar" ? "عن القابضة" : "About Holding"}</p>
-          <h1>{locale === "ar" ? "منظومة سعودية خاصة تقود الجودة عبر قطاعات متعددة." : "A Saudi private holding ecosystem built around quality across sectors."}</h1>
+          <p className="eyebrow">{locale === "ar" ? "عن الشركة" : "About Us"}</p>
+          <h1>{locale === "ar" ? "شركة تصنيع سعودية تقود الجودة في الخشب والفولاذ والألمنيوم." : "A Saudi manufacturing company leading quality across wood, steel, and aluminium."}</h1>
           <p className="lead">{company.about}</p>
           <strong className="closingLine">Excellent Service • Superior Quality • Reasonable Cost</strong>
         </Reveal>

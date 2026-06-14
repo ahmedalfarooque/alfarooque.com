@@ -5,30 +5,24 @@ export function navItems(locale: Locale) {
     locale === "ar"
       ? {
           home: "الرئيسية",
-          about: "عن القابضة",
-          businesses: "الأعمال",
-          projects: "المشاريع",
+          about: "من نحن",
+          services: "الخدمات",
           gallery: "المعرض",
-          insights: "الأخبار",
-          contact: "تواصل"
+          contact: "تواصل معنا"
         }
       : {
           home: "Home",
-          about: "About Holding",
-          businesses: "Businesses",
-          projects: "Projects",
+          about: "About",
+          services: "Services",
           gallery: "Gallery",
-          insights: "Insights",
           contact: "Contact"
         };
 
   return [
     { label: labels.home, href: `/${locale}` },
     { label: labels.about, href: `/${locale}/about` },
-    { label: labels.businesses, href: `/${locale}/businesses`, mega: true },
-    { label: labels.projects, href: `/${locale}/projects` },
+    { label: labels.services, href: `/${locale}/services` },
     { label: labels.gallery, href: `/${locale}/gallery` },
-    { label: labels.insights, href: `/${locale}/insights` },
     { label: labels.contact, href: `/${locale}/contact` }
   ];
 }

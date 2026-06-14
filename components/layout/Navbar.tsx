@@ -7,17 +7,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navItems } from "@/config/navigation";
-import { getBusinesses } from "@/lib/content";
 import { oppositeLocale } from "@/lib/locales";
 import type { Locale } from "@/types/content";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { acquireOverlayLock, overlayIsLocked, releaseOverlayLock } from "@/lib/overlayLock";
+import { acquireOverlayLock, releaseOverlayLock } from "@/lib/overlayLock";
 
 export function Navbar({ locale }: { locale: Locale }) {
-  const [megaOpen, setMegaOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const pathname = usePathname();
-  const businesses = getBusinesses(locale);
   const items = navItems(locale);
   const nextLocale = oppositeLocale(locale);
   const switchedPath = pathname.replace(`/${locale}`, `/${nextLocale}`);
@@ -37,23 +34,17 @@ export function Navbar({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <header className="navbar glass" onMouseLeave={() => setMegaOpen(false)}>
+      <header className="navbar glass">
         <Link className="brand" href={`/${locale}`}>
           <Image src="/images/alfarooque-logo.png" width={42} height={42} alt="" priority />
-          <span>{locale === "ar" ? "الفاروق القابضة" : "Alfarooque Holding"}</span>
+          <span>{locale === "ar" ? "الفاروق للتصنيع" : "Alfarooque Manufacturing"}</span>
         </Link>
         <nav className="desktopNav" aria-label="Main navigation">
-          {items.map((item) =>
-            item.mega ? (
-              <button key={item.href} className="navItem" onMouseEnter={() => { if (!overlayIsLocked()) setMegaOpen(true); }} onFocus={() => { if (!overlayIsLocked()) setMegaOpen(true); }}>
-                {item.label}
-              </button>
-            ) : (
-              <Link key={item.href} className="navItem" href={item.href}>
-                {item.label}
-              </Link>
-            )
-          )}
+          {items.map((item) => (
+            <Link key={item.href} className="navItem" href={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <div className="navActions">
           <ThemeToggle />
@@ -64,23 +55,6 @@ export function Navbar({ locale }: { locale: Locale }) {
             <Menu size={20} />
           </button>
         </div>
-        <AnimatePresence>
-          {megaOpen ? (
-            <motion.div
-              className="megaMenu glass"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-            >
-              {businesses.map((business) => (
-                <Link className="megaCard" href={`/${locale}/businesses/${business.slug}`} key={business.slug}>
-                  <Image src={business.image} width={72} height={72} alt="" />
-                  <span>{business.name}</span>
-                </Link>
-              ))}
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
       </header>
       <AnimatePresence>
         {drawerOpen ? (
